@@ -1,0 +1,25 @@
+{
+  "name": "dvelum/module-password-recovery",
+  "version": "1.0.0",
+  "type": "dvelum-module",
+  "description": "Password Recovery module for DVelum",
+  "keywords": ["dvelum","password", "recovery"],
+  "homepage": "https://github.com/dvelum/module-password-recovery",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Kirill Yegorov",
+      "email": "kirill@dvelum.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/dvelum/module-password-recovery/issues",
+    "source": "https://github.com/dvelum/module-password-recovery"
+  },
+  "require": {
+    "php":">=5.5",
+    "oomphinc/composer-installers-extender": "^1.1",
+    "dvelum/dvelum": ">=1.0.2"
+  }
+}
