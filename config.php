@@ -1,7 +1,7 @@
 <?php
 return [
-    'id' => 'dvelum_passwordrecovery',
-    'version' => '1.0.0',
+    'id' => 'dvelum-module-password-recovery',
+    'version' => '2.0.0',
     'author' => 'Kirill Egorov',
     'name' => 'DVelum Password Recovery',
     'configs' => './configs',
@@ -14,5 +14,5 @@ return [
     ],
     'objects' =>[
     ],
-    'post-install'=>'Dvelum_Backend_PasswordRecovery_Installer'
+    'post-install'=>'\\Dvelum\\PasswordRecovery\\Installer'
 ];

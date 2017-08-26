@@ -1,6 +1,6 @@
 {
   "name": "dvelum/module-password-recovery",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "dvelum-module",
   "description": "Password Recovery module for DVelum",
   "keywords": ["dvelum","password", "recovery"],
@@ -18,8 +18,8 @@
     "source": "https://github.com/dvelum/module-password-recovery"
   },
   "require": {
-    "php":">=5.5",
+    "php":">=7.1",
     "oomphinc/composer-installers-extender": "^1.1",
-    "dvelum/dvelum": ">=1.0.2"
+    "dvelum/dvelum": ">=2.0.0"
   }
 }
