@@ -5,7 +5,7 @@ namespace Dvelum\PasswordRecovery;
 use Dvelum\Config\ConfigInterface;
 use Dvelum\App\Session\User;
 use Dvelum\Orm\Model;
-use Dvelum\Orm\Object;
+use Dvelum\Orm\Record;
 use Dvelum\Lang;
 use Dvelum\Config;
 
@@ -31,7 +31,7 @@ class Installer extends \Externals_Installer
         $pageItem = $pagesModel->query()->filters(['func_code' => 'dvelum_password_recovery'])->getCount();
         if (!$pageItem) {
             try {
-                $articlesPage = new Object('Page');
+                $articlesPage = Record::factory('Page');
                 $articlesPage->setValues(array(
                     'code' => 'recovery',
                     'is_fixed' => 1,
@@ -87,7 +87,7 @@ class Installer extends \Externals_Installer
 
         foreach ($pageItems as $item) {
             try {
-                $page = Object::factory('Page', $item['id']);
+                $page = Record::factory('Page', $item['id']);
                 $page->unpublish();
             } catch (\Exception $e) {
                 $this->errors[] = $e->getMessage();

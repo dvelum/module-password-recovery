@@ -7,14 +7,14 @@ use Dvelum\App\Frontend;
 use Dvelum\Config\ConfigInterface;
 use Dvelum\Lang;
 use Dvelum\Config;
-use Dvelum\Orm\ObjectInterface;
+use Dvelum\Orm\RecordInterface;
 use Dvelum\Request;
 use Dvelum\Response;
 use Dvelum\Service;
 use Dvelum\View;
 use Dvelum\Filter;
 use Dvelum\Orm\Model;
-use Dvelum\Orm\Object;
+use Dvelum\Orm\Record;
 use Dvelum\Utils;
 
 class Controller extends Frontend\Controller
@@ -88,7 +88,7 @@ class Controller extends Frontend\Controller
         $confDate = $confDate->add(new \DateInterval('P1D'))->format('Y-m-d H:i:s');
 
         try{
-            $user = Object::factory('User', $userId);
+            $user = Record::factory('User', $userId);
             $user->setValues([
                 'confirmation_code' => $authCode,
                 'confirmation_date' => $confDate
@@ -146,7 +146,7 @@ class Controller extends Frontend\Controller
     /**
      * Find user by activation code
      * @param $code
-     * @return ObjectInterface|string (ObjectInterface | error string)
+     * @return RecordInterface | string
      */
     protected function findUserByCode($code)
     {
@@ -168,14 +168,14 @@ class Controller extends Frontend\Controller
             return 'pwd_code_expired';
         }
 
-        return Object::factory('User', $found['id']);
+        return Record::factory('User', $found['id']);
     }
 
     /**
      * Send activation code
-     * @param ObjectInterface $user
+     * @param RecordInterface $user
      */
-    protected function sendEmail(ObjectInterface $user)
+    protected function sendEmail(RecordInterface $user)
     {
         $configMail = Config::storage()->get('mail.php')->get('forgot_password');
 
@@ -235,7 +235,7 @@ class Controller extends Frontend\Controller
 
         $user = $this->findUserByCode($code);
 
-        if (!$user instanceof ObjectInterface) {
+        if (!$user instanceof RecordInterface) {
             $this->response->error($this->moduleLang->get(strval($user)));
             return ;
         }
