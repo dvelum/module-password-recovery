@@ -134,7 +134,7 @@ class Controller extends Frontend\Controller
             'code'=> $code
         ]);
 
-        if (!$user instanceof Object) {
+        if (!$user instanceof RecordInterface) {
             $template->set('form', false);
             $template->set('error', $this->moduleLang->get(strval($user)));
             $page->text = $template->render($this->passwordConfig->get('renewal_tpl'));
