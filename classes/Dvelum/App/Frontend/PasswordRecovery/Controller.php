@@ -44,7 +44,7 @@ class Controller extends Frontend\Controller
         $page = \Page::getInstance();
 
         $curUrl = $this->router->findUrl('dvelum_password_recovery');
-        $template = new View();
+        $template = View::factory();
         $template->disableCache();
         $template->setData([
             'page'=> $page,
@@ -116,7 +116,7 @@ class Controller extends Frontend\Controller
      */
     public function renewalAction()
     {
-        $template = new View();
+        $template = View::factory();
         $code = $this->request->get('c', Filter::FILTER_ALPHANUM, false);
 
         $user = $this->findUserByCode($code);
@@ -186,8 +186,8 @@ class Controller extends Frontend\Controller
 
         $this->request->isHttps() ? $scheme='https': $scheme ='http://';
 
-        $template = new View();
-        $template->setProperties(array(
+        $template = View::factory();
+        $template->setData(array(
             'name' => $userData['name'],
             'email' => $userData['email'],
             'confirmation_code' => $userData['confirmation_code'],

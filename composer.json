@@ -1,6 +1,6 @@
 {
   "name": "dvelum/module-password-recovery",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "type": "dvelum-module",
   "description": "Password Recovery module for DVelum",
   "keywords": ["dvelum","password", "recovery"],
