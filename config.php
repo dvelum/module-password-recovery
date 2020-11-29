@@ -1,7 +1,7 @@
 <?php
 return [
     'id' => 'dvelum-module-password-recovery',
-    'version' => '2.0.2',
+    'version' => '2.0.3',
     'author' => 'Kirill Egorov',
     'name' => 'DVelum Password Recovery',
     'configs' => './configs',
